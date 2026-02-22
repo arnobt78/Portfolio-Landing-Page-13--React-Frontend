@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Ensure scroll container has non-static position for Framer Motion scroll/measure */
+html,
+body,
+#root {
+  position: relative;
+}
+
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 300% 300%;
+  animation: gradientBG 10s ease infinite;
+}
+
+@layer utilities {
+  .animated-gradient {
+    background: linear-gradient(-45deg, #302b63, #00bf8f, #1CD8D2);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+/* Delay utilities for staggered animations */
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.floating-card {
+  animation: floating 4s ease-in-out infinite;
+}
+
+
+
+@media (max-width: 640px) {
+  body > *:not(#contact):not(footer) {
+    overflow-x: clip;
+  }
+}
