@@ -1,3 +1,7 @@
+/**
+ * Testimonials: grid of cards (avatar, quote, name, role). Data in testimonials array;
+ * each card uses whileInView for staggered fade-in. Replace images and copy for your own testimonials.
+ */
 // Importing React library so we can create and use components
 import React from "react";
 

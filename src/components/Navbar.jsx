@@ -1,3 +1,8 @@
+/**
+ * Navbar: fixed top bar with logo, hamburger (opens OverlayMenu), and Contact CTA.
+ * Visibility: when #home is in view we force the navbar visible; otherwise hide on scroll down,
+ * show on scroll up, and auto-hide again after 3s of no scrolling.
+ */
 import { useState, useEffect, useRef } from "react";
 import OverlayMenu from "./OverlayMenu";
 import { FiMenu } from "react-icons/fi";
@@ -10,6 +15,7 @@ export default function Navbar() {
   const lastScrollY = useRef(0);
   const timerId = useRef(null);
 
+  /* IntersectionObserver: when hero (#home) is in view, keep navbar visible; else allow scroll-hide behavior. */
   useEffect(() => {
     const homeSection = document.querySelector("#home");
 
@@ -32,6 +38,7 @@ export default function Navbar() {
     };
   }, []);
 
+  /* Scroll listener: down = hide navbar; up = show and schedule hide after 3s (unless forceVisible from hero). */
   useEffect(() => {
     const handleScroll = () => {
       // If on homepage, never hide navbar

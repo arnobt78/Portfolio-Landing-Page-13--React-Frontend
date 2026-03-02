@@ -1,3 +1,7 @@
+/**
+ * ParticlesBackground: canvas-based floating particles (simple 2D animation loop).
+ * Used in Contact (and can be reused in other sections). Resizes with window and recreates particles on resize.
+ */
 import { useEffect, useRef } from "react"; // Import React hooks
 
 export default function ParticleBackground() { // Define a React component

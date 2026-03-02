@@ -1,7 +1,12 @@
+/**
+ * MusicPlayer: fixed floating button to play/pause and shuffle tracks. Single click = play/pause;
+ * double click (or double tap on mobile) = next random track. Uses refs to avoid stale closures in handlers.
+ */
 import React, { useRef, useState, useEffect } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 
 const MusicPlayer = () => {
+  /* Paths are relative to public/ so Vite serves them at root. Add your MP3s to public/. */
   const playlist = [
     "/iwasneverthere.mp3",
     "/escapism.mp3",
@@ -54,8 +59,8 @@ const MusicPlayer = () => {
     audio.addEventListener("canplay", onCanPlay);
   };
 
-  // Play a specific track (called by click gestures)
-  const playTrack = (index) => {
+  // Play a specific track by index (reserved for future track-list UI)
+  const _playTrack = (index) => {
     setCurrentTrackIndex(index);
     setIsPlaying(true);
     setInfoText("Double tap to change the music");
@@ -109,10 +114,10 @@ const MusicPlayer = () => {
     audio.volume = 0.6;
     audio.muted = false;
 
-    // Dev-time diagnostics (optional; remove in prod)
     const onError = () => {
-      // eslint-disable-next-line no-console
-      console.warn("Audio error loading/playing:", audio.error);
+      if (import.meta.env.DEV) {
+        console.warn("Audio error loading/playing:", audio.error);
+      }
     };
     audio.addEventListener("error", onError);
     return () => audio.removeEventListener("error", onError);

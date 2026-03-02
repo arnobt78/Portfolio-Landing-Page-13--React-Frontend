@@ -1,3 +1,8 @@
+/**
+ * IntroAnimation: full-screen intro that cycles through greeting strings (multi-language),
+ * then runs a GSAP timeline (slide up + SVG morph) and calls onFinish() when done.
+ * Parent (App) uses onFinish to unmount this and show the main content.
+ */
 import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
@@ -5,6 +10,7 @@ import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 gsap.registerPlugin(MorphSVGPlugin);
 
 export default function IntroAnimation({ onFinish }) {
+  /* Greeting strings shown one after another; last one triggers the exit animation. */
   const greetings = [
     "Hello", "नमस्ते", "Hola", "Bonjour",
     "Ciao", "Olá", "Здравствуйте",
@@ -15,6 +21,7 @@ export default function IntroAnimation({ onFinish }) {
   const overlayRef = useRef(null);
   const greetingRef = useRef(null);
 
+  /* When index is before the last greeting: animate current text in, then advance index. */
   useEffect(() => {
     let greetingTimer;
 
@@ -26,6 +33,7 @@ export default function IntroAnimation({ onFinish }) {
       );
       greetingTimer = setTimeout(() => setIndex(i => i + 1), 180);
     } else {
+      /* Last greeting: show it, then after 300ms run exit timeline (slide up + morph path). */
       gsap.fromTo(
         greetingRef.current,
         { opacity: 0, y: 20 },
@@ -54,7 +62,7 @@ export default function IntroAnimation({ onFinish }) {
     }
 
     return () => clearTimeout(greetingTimer);
-  }, [index, onFinish]);
+  }, [index, onFinish, greetings.length]);
 
   return (
     <div

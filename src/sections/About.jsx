@@ -1,3 +1,7 @@
+/**
+ * About: profile section with avatar, name, role, bio, quick stats grid, and CTAs.
+ * whileInView + viewport (once, amount) trigger animations when the section scrolls into view.
+ */
 import { motion } from "framer-motion";
 import p from "../assets/p.jpg";
 

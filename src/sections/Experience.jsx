@@ -1,9 +1,14 @@
+/**
+ * Experience: timeline of jobs (role, company, duration, description). Desktop = horizontal line with alternating
+ * cards above/below; mobile = vertical line with cards to the right. useScroll + useTransform tie marker and card
+ * opacity/position to scroll progress (start/end thresholds per item).
+ */
 // Importing React for building UI components
 import React from "react";
 // Importing motion components and scroll hooks from Framer Motion for animations
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// Array of experience objects containing job details
+// Array of experience objects containing job details; edit for your own history
 const experiences = [
   {
     role: "Web Developer",

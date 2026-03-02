@@ -1,3 +1,7 @@
+/**
+ * Skills: horizontal infinite carousel of skill icons. Only animates when section is in view (IntersectionObserver).
+ * Wheel and touch move the track via useMotionValue(x); requestAnimationFrame updates position; loop logic keeps it seamless.
+ */
 import {FaJava , FaReact} from 'react-icons/fa';
 import {SiNextdotjs, SiTypescript, SiTailwindcss, SiFastapi, SiPython, SiDocker, SiMongodb, SiAngular} from 'react-icons/si';
 import {DiNodejsSmall} from 'react-icons/di';
@@ -7,6 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function Skills() {
 
+/* Add or remove skills; icons from react-icons. */
 const skills = [
     { icon: <FaJava />, name: "Java" },
     { icon: <FaReact />, name: "React" },
@@ -20,15 +25,17 @@ const skills = [
     { icon: <SiMongodb />, name: "MongoDB" },
     { icon: <SiAngular />, name: "Angular" },
   ];
+/* Duplicate list so we can scroll infinitely without a visible gap. */
 const repeated = [...skills , ...skills]
 
-const [dir , setDir] = useState(-1);
-const [active , setActive] = useState(false);
+const [dir , setDir] = useState(-1);   /* scroll direction: 1 or -1 */
+const [active , setActive] = useState(false); /* true when section is in view (carousel runs) */
 const sectionRef = useRef(null);
-const trackRef = useRef(null);
+const trackRef = useRef(null);  /* used to read track width for loop wrap */
 const touchY = useRef(null);
-const x= useMotionValue(0);
+const x= useMotionValue(0);    /* horizontal offset of the track; style={{ x }} on motion.div */
 
+/* IntersectionObserver: set active when section is at least 10% visible so carousel only runs when seen. */
 useEffect(()=> {
 const el = sectionRef.current;
 if(!el) return;
@@ -44,6 +51,7 @@ return () => io.disconnect();
 
 }, [])
 
+/* Wheel and touch: update scroll direction so the animation loop knows which way to move the track. */
 useEffect(()=> {
   if(!active) return;
 
@@ -66,8 +74,7 @@ useEffect(()=> {
   }
 },[active]);
 
-
-
+/* Animation loop: move track by SPEED * dir per second; wrap position when it exceeds half track width for seamless loop. */
 useEffect(()=> {
   let id;
   let last = performance.now();

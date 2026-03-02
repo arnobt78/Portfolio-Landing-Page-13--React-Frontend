@@ -1,3 +1,7 @@
+/**
+ * Root layout: single-page portfolio. Renders intro (until onFinish), then all sections in order.
+ * introDone state controls whether IntroAnimation is shown; Home receives it for optional reveal logic.
+ */
 import { useState } from "react";
 import IntroAnimation from "./components/IntroAnimation";
 import Navbar from "./components/Navbar";

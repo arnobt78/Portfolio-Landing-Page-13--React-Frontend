@@ -1,8 +1,13 @@
+/**
+ * OverlayMenu: full-screen menu opened from navbar. AnimatePresence handles mount/unmount;
+ * clipPath circle() animates from the menu button area (origin) to cover the screen on open, reverse on close.
+ * Links use hash (#about, #skills, etc.) for in-page navigation.
+ */
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
 
 export default function OverlayMenu({ isOpen, onClose }) {
-  // Pick clip origin based on screen width
+  /* Clip-path origin: mobile = near top-right (hamburger); desktop = center-top for circle expand. */
   const isMobile = typeof window !== "undefined" && window.innerWidth < 1024; // lg breakpoint
   const origin = isMobile ? "95% 8%" : "50% 8%";
 

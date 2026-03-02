@@ -1,3 +1,7 @@
+/**
+ * Footer: branding name, gradient underline, social links (same glow variants as Home), quote, and copyright.
+ * Year is dynamic via new Date().getFullYear(). Update socials hrefs and quote for your site.
+ */
 // src/components/Footer.jsx
 import React from "react";
 import { motion } from "framer-motion";

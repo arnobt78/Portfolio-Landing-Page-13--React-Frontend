@@ -1,3 +1,7 @@
+/**
+ * Home: hero section with typing effect (roles cycle), avatar, CTAs, and social links.
+ * forwardRef allows parent to pass a ref (e.g. for scroll or measurements). ParticleBackground + gradient blobs for atmosphere.
+ */
 import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import avatar from "../assets/avator.png";
@@ -5,6 +9,7 @@ import { FaXTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa6";
 import { FaYoutube, FaInstagram } from "react-icons/fa6";
 import ParticleBackground from "../components/ParticlesBackground";
 
+/* Social links and icons; replace hrefs with your profiles. */
 const socials = [
   {
     Icon: FaYoutube,
@@ -29,6 +34,7 @@ const socials = [
   },
 ];
 
+/* Framer Motion variants for social icon hover/tap: scale, lift, and glow. */
 const glowVariants = {
   initial: { scale: 1, y: 0, filter: "drop-shadow(0 0 0 rgba(0,0,0,0))" },
   hover: {
@@ -50,11 +56,11 @@ const Home = React.forwardRef((props, ref) => {
     () => ["Software Developer", "Web Developer", "Content Creator"],
     [],
   );
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [deleting, setDeleting] = useState(false);
+  const [index, setIndex] = useState(0);       /* which role string is active */
+  const [subIndex, setSubIndex] = useState(0); /* current character index within that string */
+  const [deleting, setDeleting] = useState(false); /* true when backspacing */
 
-  // typing effect logic
+  /* Typing effect: type forward, pause at end, then delete and switch to next role in cycle. */
   useEffect(() => {
     const current = roles[index];
     const timeout = setTimeout(

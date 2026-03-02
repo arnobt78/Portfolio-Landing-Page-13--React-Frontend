@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-/* Ensure scroll container has non-static position for Framer Motion scroll/measure */
+/* Required for Framer Motion: scroll-linked animations (useScroll, useTransform) need a non-static
+   positioning context on the scroll container so measurements work correctly. */
 html,
 body,
 #root {
@@ -8,6 +9,7 @@ body,
 }
 
 
+/* Optional alternate gradient animation (e.g. for other elements). */
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -67,6 +69,7 @@ body,
 
 
 
+/* Prevent horizontal overflow on small screens; contact and footer are excluded. */
 @media (max-width: 640px) {
   body > *:not(#contact):not(footer) {
     overflow-x: clip;

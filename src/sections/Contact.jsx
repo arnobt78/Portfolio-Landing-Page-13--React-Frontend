@@ -1,10 +1,15 @@
+/**
+ * Contact: form (name, email, service, budget, idea) with client-side validation.
+ * If VITE_SERVICE_ID, VITE_TEMPLATE_ID, and VITE_PUBLIC_KEY are set, submits via EmailJS; otherwise shows "demo mode" message.
+ * budget: only digits allowed (regex in handleChange). Required fields: name, email, service, idea; budget required unless service is "other".
+ */
 // Importing React's useState hook for managing component state
 import { useState } from "react";
 
 // Importing motion component from Framer Motion for animations
 import { motion } from "framer-motion";
 
-// Importing EmailJS SDK
+// Importing EmailJS SDK (client-side email sending; no backend required)
 import emailjs from "@emailjs/browser";
 
 // Importing Particles Background (same as Home component)
@@ -40,6 +45,7 @@ export default function Contact() {
     if (errors[name]) setErrors((p) => ({ ...p, [name]: "" }));
   };
 
+  /* Validates required fields and budget (required unless service is "other"); returns true if valid. */
   const validateForm = () => {
     const required = ["name", "email", "service", "idea"];
     const newErrors = {};
@@ -55,6 +61,7 @@ export default function Contact() {
     return !Object.keys(newErrors).length;
   };
 
+  /* If any EmailJS env var is missing, we skip sending and show demo message instead of calling the API. */
   const hasEmailJsConfig =
     SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY;
 

@@ -1,8 +1,11 @@
+/**
+ * Projects: scroll-driven project showcase. Section height = N * 100vh (one screen per project).
+ * useScroll + thresholds drive activeIndex; sticky content shows one project at a time with AnimatePresence for title.
+ * useIsMobile swaps desktop/mobile images per project. Add projects to the array and optional MP/desktop images.
+ */
 import React from "react";
 import { motion, useScroll, AnimatePresence } from "framer-motion";
-// motion: for animating elements
-// useScroll: to track scroll position
-// AnimatePresence: to animate components when mounting/unmounting
+// motion: for animating elements; useScroll: to track scroll position; AnimatePresence: animate mount/unmount
 
 // Importing project images (desktop & mobile versions)
 import img1 from "../assets/img1.JPG";

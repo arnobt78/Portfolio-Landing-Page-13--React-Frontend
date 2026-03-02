@@ -1,3 +1,7 @@
+/**
+ * CustomCursor: a decorative gradient circle that follows the mouse. Purely visual;
+ * pointer-events-none ensures it does not block clicks. Optional for portfolio flair.
+ */
 // Importing React hooks
 import { useEffect, useState } from "react";
 
