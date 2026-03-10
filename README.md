@@ -1,15 +1,20 @@
-# Portfolio Landing Page 16 – React, Vite, TailwindCSS Frontend Project
+# Portfolio Landing Page 16 – React, Vite, JavaScript, TailwindCSS Frontend Project
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-19.1-blue)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-7.x-646CFF)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC)](https://tailwindcss.com/)
 
-A **single-page portfolio** built with React, Vite, and Tailwind CSS. It showcases a full landing experience: hero with typing roles, about, skills carousel, scroll-driven project cards, experience timeline, testimonials, and a contact form powered by EmailJS. The project is intended for **learning and reuse**—clone it, customize content and styling, and deploy your own portfolio or use individual components in other apps.
+A **single-page portfolio** built with React, Vite, JavaScript, and Tailwind CSS. It showcases a full landing experience: hero with typing roles, about, skills carousel, scroll-driven project cards, experience timeline, testimonials, and a contact form powered by EmailJS. The project is intended for **learning and reuse**—clone it, customize content and styling, and deploy your own portfolio or use individual components in other apps.
 
 **Live Demo:** [https://portfolio-ui-13.vercel.app/](https://portfolio-ui-13.vercel.app/)
 
-<img width="1900" height="955" alt="Screenshot 2026-03-10 at 11 50 54" src="https://github.com/user-attachments/assets/c6f2d4a4-d085-4fd3-acb2-885dfd959da9" /> <img width="1854" height="771" alt="Screenshot 2026-03-10 at 11 51 04" src="https://github.com/user-attachments/assets/7efc68b4-8fb8-4aaa-a488-0d2b62498435" /> <img width="1882" height="933" alt="Screenshot 2026-03-10 at 11 51 16" src="https://github.com/user-attachments/assets/845865dd-5ebc-4102-87e0-85618d3a6f22" /> <img width="1824" height="794" alt="Screenshot 2026-03-10 at 11 51 38" src="https://github.com/user-attachments/assets/380b0845-3959-4f7e-adb5-73d66ba27423" /> <img width="1826" height="796" alt="Screenshot 2026-03-10 at 11 51 49" src="https://github.com/user-attachments/assets/c20546f7-4b03-44e9-8da6-3635de6f4ccf" /> <img width="1865" height="798" alt="Screenshot 2026-03-10 at 11 52 11" src="https://github.com/user-attachments/assets/a6f60311-ed32-4350-88f0-4b62e56b3e54" />
+![Screenshot 2026-03-10 at 11 50 54](https://github.com/user-attachments/assets/c6f2d4a4-d085-4fd3-acb2-885dfd959da9)
+![Screenshot 2026-03-10 at 11 51 04](https://github.com/user-attachments/assets/7efc68b4-8fb8-4aaa-a488-0d2b62498435)
+![Screenshot 2026-03-10 at 11 51 16](https://github.com/user-attachments/assets/845865dd-5ebc-4102-87e0-85618d3a6f22)
+![Screenshot 2026-03-10 at 11 51 38](https://github.com/user-attachments/assets/380b0845-3959-4f7e-adb5-73d66ba27423)
+![Screenshot 2026-03-10 at 11 51 49](https://github.com/user-attachments/assets/c20546f7-4b03-44e9-8da6-3635de6f4ccf)
+![Screenshot 2026-03-10 at 11 52 11](https://github.com/user-attachments/assets/a6f60311-ed32-4350-88f0-4b62e56b3e54)
 
 ## Table of Contents
 
@@ -36,7 +41,7 @@ A **single-page portfolio** built with React, Vite, and Tailwind CSS. It showcas
 - **Navbar:** Fixed top bar with logo, hamburger menu (opens overlay), and “Reach Out” CTA. Hides on scroll down, shows on scroll up; always visible when the hero is in view.
 - **Overlay menu:** Full-screen menu with circle clip-path animation (Framer Motion). Links scroll to sections via hash (`#about`, `#skills`, etc.).
 - **About:** Profile card with avatar, name, role, bio, quick stats, and “My Resume” / social links. Neon-style gradient blurs in the background.
-- **Skills:** Horizontal infinite carousel of skill icons (React, Java, Tailwind, etc.). Scroll/touch and `useMotionValue` drive the animation; carousel activates when the section is in view.
+- **Skills:** Horizontal infinite carousel of skill icons (React, JavaScript, Tailwind, etc.). Scroll/touch and `useMotionValue` drive the animation; carousel activates when the section is in view.
 - **Projects:** Scroll-linked project cards. `useScroll` + `useTransform` tie card opacity/position to scroll progress. Desktop vs mobile images via `useIsMobile` and a responsive project list.
 - **Experience:** Vertical timeline with role, company, duration, description. Scroll-based animation for markers and card opacity/position (desktop: alternating left/right; mobile: single column).
 - **Testimonials:** Grid of testimonial cards (avatar, name, role, quote) with Framer Motion `whileInView` animations.
