@@ -9,7 +9,7 @@ A **single-page portfolio** built with React, Vite, and Tailwind CSS. It showcas
 
 **Live Demo:** [https://portfolio-ui-13.vercel.app/](https://portfolio-ui-13.vercel.app/)
 
----
+<img width="1900" height="955" alt="Screenshot 2026-03-10 at 11 50 54" src="https://github.com/user-attachments/assets/c6f2d4a4-d085-4fd3-acb2-885dfd959da9" /> <img width="1854" height="771" alt="Screenshot 2026-03-10 at 11 51 04" src="https://github.com/user-attachments/assets/7efc68b4-8fb8-4aaa-a488-0d2b62498435" /> <img width="1882" height="933" alt="Screenshot 2026-03-10 at 11 51 16" src="https://github.com/user-attachments/assets/845865dd-5ebc-4102-87e0-85618d3a6f22" /> <img width="1824" height="794" alt="Screenshot 2026-03-10 at 11 51 38" src="https://github.com/user-attachments/assets/380b0845-3959-4f7e-adb5-73d66ba27423" /> <img width="1826" height="796" alt="Screenshot 2026-03-10 at 11 51 49" src="https://github.com/user-attachments/assets/c20546f7-4b03-44e9-8da6-3635de6f4ccf" /> <img width="1865" height="798" alt="Screenshot 2026-03-10 at 11 52 11" src="https://github.com/user-attachments/assets/a6f60311-ed32-4350-88f0-4b62e56b3e54" />
 
 ## Table of Contents
 
